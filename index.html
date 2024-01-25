@@ -1,0 +1,65 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absensi Siswa dengan QR Code</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<style>
+  h2{
+    color:aqua;
+    text-align: center;
+    font-size: 40px;
+  }
+
+  form{
+    text-align: center;
+  }
+
+  h1{
+    color: greenyellow;
+    text-align: center;
+  }
+
+  button{
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  input[type=text] {
+    width: 15%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 17px;
+  }
+
+  label{
+    color:purple;
+    font-size: 30px;
+  }
+</style>
+<body>
+  <h2>Absensi Siswa dengan QR Code</h2>
+  <form action="/" method="post">
+    <label for="studentName">Nama Siswa:</label>
+    <input type="text" id="studentName" name="studentName">
+    <button type="submit">Generate QR Code</button>
+  </form>
+  <form action="/sudahabsen" method="post" id="kodeVerifikasi">
+    <label for="kodeVerif">Kode:</label>
+    <input type="text" id="kodeVerif" name="kodeVerif" required>
+    <button type="submit">Check In</button>
+  </form>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
