@@ -5,61 +5,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Absensi Siswa dengan QR Code</title>
-  <link href="css/style.css" rel="stylesheet">
+  <title>ABSEN - SMK BINA SISWA 2 CILILIN</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<style>
-  h2{
-    color:aqua;
-    text-align: center;
-    font-size: 40px;
-  }
-
-  form{
-    text-align: center;
-  }
-
-  h1{
-    color: greenyellow;
-    text-align: center;
-  }
-
-  button{
-    background-color: #04AA6D; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
-
-  input[type=text] {
-    width: 15%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    font-size: 17px;
-  }
-
-  label{
-    color:purple;
-    font-size: 30px;
-  }
-</style>
 <body>
-  <h2>Absensi Siswa dengan QR Code</h2>
+  <!-- <h2>Absensi Siswa dengan QR Code</h2>
   <form method="post">
     <label for="studentName">Nama Siswa:</label>
     <input type="text" id="studentName" name="studentName">
     <button type="submit">Generate QR Code</button>
   </form>
-  <form action="/sudahabsen" method="post" id="kodeVerifikasi">
+  <form action="/sudahabsen" method="post" id="kodeVerif">
     <label for="kodeVerif">Kode:</label>
     <input type="text" id="kodeVerif" name="kodeVerif" required>
     <button type="submit">Check In</button>
-  </form>
-  <script type="module" src="app.js"></script>
+  </form>-->
+  <script src="app.js"></script>
+  <div class="login-form">
+    <h1>ABSEN SMK BINA SISWA 2 CILILIN</h1>
+    <form class="form-input-material" method="post">
+      <label class="label-nama" for="studentName">Nama</label>
+      <input type="text" class="input-nama" id="studentName" name="studentName">
+      <button type="submit" class="btn-nama">Generate QR Code</button>
+    </form>
+    <form class="form-input-material" action="/sudahabsen" method="post" id="kodeVerif">
+      <label class="label-kode" for="kodeVerif">Kode</label>
+      <input type="text" class="input-kode" id="kodeVerif" name="kodeVerif" required>
+      <button type="submit" class="btn btn-primary btn-ghost">Check In</button>
+  </div>
 </body>
 </html>
