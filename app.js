@@ -55,7 +55,7 @@ app.post('/sudahabsen', (req, res, next) => {
     if (err) throw err;
     console.log(`${formData.studentName} Telah memasukkan kode: ${verificationCode}`);
     res.send(`Data absensi tersimpan untuk ${formData.studentName} menggunakan kode: ${verificationCode}`);
-    });
+  });
 });
 
 //app.get('/scan/:studentName', (req, res) => {
