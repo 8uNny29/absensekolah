@@ -7,6 +7,5 @@ Untuk menjalankan program ini cukup mudah
 Jika belum ada modulnya kalian bisa gunakan 
  - npm install [WAJIB MEMPUNYAI NODE.JS VERSI LATEST]
  - node app
-dan BOOM program akan jalan
 
 NOTE: JIKA TIDAK TERTARIK JANGAN BUKA INI YA
