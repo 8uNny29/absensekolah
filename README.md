@@ -4,7 +4,7 @@ Tidak ingin panjang lebar, program ini dijalankan menggunakan
 Absen ini menggunakan QRCode dan juga validasi kode, mungkin cukup sulit untuk orang awam. Tetapi, ini adalah versi paling mudah untuk dibuat
 
 Untuk menjalankan program ini cukup mudah
-Jika belum ada modulnya kalian bisa gunakan 
+Jika belum ada modulnya kalian bisa ketikkan di Command Prompt perintah sebagai berikut:
  - npm install [WAJIB MEMPUNYAI NODE.JS VERSI LATEST]
  - node app
 
