@@ -48,25 +48,52 @@ function generatekodeVerif() {
 app.post('/', (req, res, next) => {
   formData = req.body;
   const studentName = req.body.studentName;
-  const kodeVerif = generatekodeVerif();
-  const qr_png = qr.image(kodeVerif, { type: 'png' });
+  const kodeVerifGen = generatekodeVerif();
+  const qr_png = qr.image(kodeVerifGen, { type: 'png' });
   const qrPath = 'qr_codes/' + studentName + '.png';
   qr_png.pipe(fs.createWriteStream(qrPath));
-  console.log(studentName + ' Telah membuat QR Code');
-  console.log(kodeVerif);
-//  db.query('INSERT INTO absensi (kodeverifikasi) VALUES (?)', [formData.kodeVerif], (err, result) => {
-//    if (err) throw err;
-//    console.log(formData.kodeVerif `telah terkirim`);
-//  })
+  console.log(studentName + ' telah membuat QR Code');
+  console.log(kodeVerifGen);
+  db.query('INSERT INTO verifikasi (kode_verif, nama_murid) VALUES (?,?)', [kodeVerifGen, formData.studentName], (err, result) => {
+    if (err) throw err;
+    console.log(`kode (${kodeVerifGen}) dari ${formData.studentName} telah terkirim`);
+  })
 });
 
 app.post('/sudahabsen', (req, res, next) => {
   const kodeVerif = req.body.kodeVerif;
-  db.query('INSERT INTO absensi (nama_murid) VALUES (?)', [formData.studentName], (err, result) => {
+  db.query('SELECT * FROM verifikasi WHERE kode_verif = ?', [kodeVerif], (err, result) => {
+    if (err) throw err;
+
+    if (result.length > 0) {
+      res.send(`Verifikasi ${formData.studentName} berhasil`);
+    } else {
+      res.send(`Verifikasi ${formData.studentName} gagal!`);
+    }
+  });
+
+  db.query('INSERT INTO data (nama_murid) VALUES (?)', [formData.studentName], (err, result) => {
     if (err) throw err;
     console.log(`${formData.studentName} telah memasukkan kode: ${kodeVerif}`);
-    res.send(`Data absensi mu telah tersimpan, menggunakan kode: ${kodeVerif}`);
   });
+} else {
+  res.send('Data done sir');
+});
+
+// Check if conditions are met
+if (data.value > 10) {
+  // Insert data into database
+  const query = 'INSERT INTO your_table SET ?';
+  db.query(query, data, (err, result) => {
+    if (err) throw err;
+    res.send('Data inserted');
+  });
+} else {
+  res.send('Data not inserted');
+}
+
+app.listen(port, () => {
+  console.log(`Server berjalan di http://localhost:${port}`);
 });
 
 //app.get('/scan/:studentName', (req, res) => {
@@ -77,7 +104,3 @@ app.post('/sudahabsen', (req, res, next) => {
 //    res.send('Data absensi tersimpan untuk ' + studentName);
 //  });
 //});
-
-app.listen(port, () => {
-  console.log(`Server berjalan di http://localhost:${port}`);
-});
