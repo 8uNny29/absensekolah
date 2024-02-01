@@ -54,6 +54,10 @@ app.post('/', (req, res, next) => {
   qr_png.pipe(fs.createWriteStream(qrPath));
   console.log(studentName + ' Telah membuat QR Code');
   console.log(kodeVerif);
+//  db.query('INSERT INTO absensi (kodeverifikasi) VALUES (?)', [formData.kodeVerif], (err, result) => {
+//    if (err) throw err;
+//    console.log(formData.kodeVerif `telah terkirim`);
+//  })
 });
 
 app.post('/sudahabsen', (req, res, next) => {

@@ -79,35 +79,35 @@ body {
 }
 
 .input-kode {
-font-size: 20px;
-position: relative;
-left: 70px;
+  font-size: 20px;
+  position: relative;
+  left: 70px;
 }
 
 .input-nama {
-font-size: 20px;
-position: relative;
-left: 65px;
+  font-size: 20px;
+  position: relative;
+  left: 65px;
 }
 
 .label-nama {
-font-size: 25px;
-position: relative;
-bottom: 30px;
-left: 230px;
-margin: 0 0;
+  font-size: 25px;
+  position: relative;
+  bottom: 30px;
+  left: 230px;
+  margin: 0 0;
 }
 
 .label-kode {
-font-size: 25px;
-position: relative;
-bottom: 30px;
-left: 230px;
-margin: 0 0;
+  font-size: 25px;
+  position: relative;
+  bottom: 30px;
+  left: 230px;
+  margin: 0 0;
 }
 
 .btn-nama {
-position: relative;
-left: 70px;
-bottom: 2px;
+  position: relative;
+  left: 70px;
+  bottom: 2px;
 }
