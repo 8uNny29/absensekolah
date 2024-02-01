@@ -56,7 +56,7 @@ app.post('/', (req, res, next) => {
   console.log(kodeVerifGen);
   db.query('INSERT INTO verifikasi (kode_verif, nama_murid) VALUES (?,?)', [kodeVerifGen, formData.studentName], (err, result) => {
     if (err) throw err;
-    console.log(`kode (${kodeVerifGen}) dari ${formData.studentName} telah terkirim`);
+    console.log(`kode (${kodeVerifGen}) dari ${formData.studentName} telah terkirim ke database`);
   })
 });
 
@@ -66,31 +66,15 @@ app.post('/sudahabsen', (req, res, next) => {
     if (err) throw err;
 
     if (result.length > 0) {
+      db.query('INSERT INTO data (nama_murid) VALUES (?)' , [formData.studentName], (err, result) => {
+        if (err) throw err;
+      });
       res.send(`Verifikasi ${formData.studentName} berhasil`);
     } else {
       res.send(`Verifikasi ${formData.studentName} gagal!`);
     }
   });
-
-  db.query('INSERT INTO data (nama_murid) VALUES (?)', [formData.studentName], (err, result) => {
-    if (err) throw err;
-    console.log(`${formData.studentName} telah memasukkan kode: ${kodeVerif}`);
-  });
-} else {
-  res.send('Data done sir');
 });
-
-// Check if conditions are met
-if (data.value > 10) {
-  // Insert data into database
-  const query = 'INSERT INTO your_table SET ?';
-  db.query(query, data, (err, result) => {
-    if (err) throw err;
-    res.send('Data inserted');
-  });
-} else {
-  res.send('Data not inserted');
-}
 
 app.listen(port, () => {
   console.log(`Server berjalan di http://localhost:${port}`);
