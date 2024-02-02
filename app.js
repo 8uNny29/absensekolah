@@ -54,10 +54,22 @@ app.post('/', (req, res, next) => {
   qr_png.pipe(fs.createWriteStream(qrPath));
   console.log(studentName + ' telah membuat QR Code');
   console.log(kodeVerifGen);
-  db.query('INSERT INTO verifikasi (kode_verif, nama_murid) VALUES (?,?)', [kodeVerifGen, formData.studentName], (err, result) => {
+  db.query('SELECT * FROM verifikasi WHERE nama_murid = ?', [formData.studentName], (err, rows) => {
     if (err) throw err;
-    console.log(`kode (${kodeVerifGen}) dari ${formData.studentName} telah terkirim ke database`);
-  })
+
+    if (rows.length === 0) {
+      db.query('INSERT INTO verifikasi (kode_verif, nama_murid) VALUES (?,?)', [kodeVerifGen, formData.studentName], (err, result) => {
+        if (err) throw err;
+        console.log(`kode (${kodeVerifGen}) dari ${formData.studentName} telah terkirim ke database`);
+      });
+    }
+    else {
+      db.query('UPDATE verifikasi SET kode_verif = ? WHERE nama_murid = ?', [kodeVerifGen, formData.studentName], (err, result) => {
+        if (err) throw err;
+        console.log(`kode dari ${formData.studentName} telah di perbaharui dengan ${kodeVerifGen}`);
+      });
+    }
+  });
 });
 
 app.post('/sudahabsen', (req, res, next) => {
@@ -79,12 +91,3 @@ app.post('/sudahabsen', (req, res, next) => {
 app.listen(port, () => {
   console.log(`Server berjalan di http://localhost:${port}`);
 });
-
-//app.get('/scan/:studentName', (req, res) => {
-//  const studentName = req.params.studentName;
-//  db.query('INSERT INTO absensi (nama_murid) VALUES (?)', [studentName], (err, result) => {
-//    if (err) throw err;
-//    console.log('Data absensi tersimpan untuk ' + studentName);
-//    res.send('Data absensi tersimpan untuk ' + studentName);
-//  });
-//});
