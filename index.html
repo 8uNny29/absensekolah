@@ -9,18 +9,38 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <script src="app.js"></script>
   <div class="login-form">
     <h1>ABSEN SMK BINA SISWA 2 CILILIN</h1>
-    <form class="form-input-material" method="post">
+    <form class="form-input-material" method="post" id="namaDankelas">
       <label class="label-nama" for="studentName">Nama</label>
-      <input type="text" class="input-nama" id="studentName" name="studentName">
-      <button type="submit" class="btn-nama">Generate QR Code</button>
+      <input type="text" class="input-nama" id="studentName" name="studentName" required>
+      <button type="submit" class="btn-nama" id="qrCode">Minta QRCode</button>
+      <br>
+      <label class="label-kelas" for="pilihKelas">Kelas</label>
+      <select class="select-kelas" id="pilihKelas" name="pilihKelas" required>
+        <option class="opsikelas1" value="X TKJ 1">X TKJ 1</option>
+        <option class="opsikelas2" value="X TKJ 2">X TKJ 2</option>
+        <option class="opsikelas3" value="X TKJ 3">X TKJ 3</option>
+        <option class="opsikelas4" value="X TBSM">X TBSM</option>
+        <option class="opsikelas5" value="XI TKJ 1">XI TKJ 1</option>
+        <option class="opsikelas6" value="XI TKJ 2">XI TKJ 2</option>
+        <option class="opsikelas7" value="XI TKJ 3">XI TKJ 3</option>
+        <option class="opsikelas8" value="XI TBSM">XI TBSM</option>
+        <option class="opsikelas9" value="XII TKJ 1">XII TKJ 1</option>
+        <option class="opsikelas10" value="XII TKJ 2">XII TKJ 2</option>
+        <option class="opsikelas11" value="XII TKJ 3">XII TKJ 3</option>
+        <option class="opsikelas12" value="XII TBSM">XII TBSM</option>
+      </select>
     </form>
-    <form class="form-input-material" action="/sudahabsen" method="post" id="kodeVerif">
-      <label class="label-kode" for="kodeVerif">Kode</label>
-      <input type="text" class="input-kode" id="kodeVerif" name="kodeVerif" required>
-      <button type="submit" class="btn btn-primary btn-ghost btn-kode">Check In</button>
   </div>
+  <script src="./app.js"></script>
 </body>
 </html>
+
+<!--
+<form class="form-input-material" action="/sudahabsen" method="post" id="kodeVerif">
+<label class="label-kode" for="kodeVerif">Kode</label>
+  <input type="text" class="input-kode" id="kodeVerif" name="kodeVerif" placeholder="" required>
+  <button type="submit" class="btn btn-primary btn-ghost btn-kode" id="clearAbsen">Check In</button>
+</form>
+-->
