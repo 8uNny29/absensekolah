@@ -5,10 +5,7 @@ const qr = require('qr-image');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const mysql = require('mysql'); // Anda perlu menginstal paket mysql dengan npm install mysql
-const { get } = require('http');
 const path = require('path');
-const React = require('react');
-const { time } = require('console');
 
 const app = express();
 const port = 3000;
