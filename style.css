@@ -47,6 +47,10 @@ body {
   }
 }
 
+.rv_element {
+  display: none;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;

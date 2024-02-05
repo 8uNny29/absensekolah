@@ -9,12 +9,12 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="login-form">
+  <div class="login-form" id="nama-form">
     <h1>ABSEN SMK BINA SISWA 2 CILILIN</h1>
-    <form class="form-input-material" method="post" id="namaDankelas">
+    <form class="form-input-material" method="post" id="nama-kelas">
       <label class="label-nama" for="studentName">Nama</label>
       <input type="text" class="input-nama" id="studentName" name="studentName" required>
-      <button type="submit" class="btn-nama" id="qrCode">Minta QRCode</button>
+      <button type="submit" class="btn-nama" id="minta-qrcode">Minta QRCode</button>
       <br>
       <label class="label-kelas" for="pilihKelas">Kelas</label>
       <select class="select-kelas" id="pilihKelas" name="pilihKelas" required>
@@ -32,8 +32,14 @@
         <option class="opsikelas12" value="XII_TBSM">XII TBSM</option>
       </select>
     </form>
+    <form style="display: none;" class="form-input-material" action="/sudahabsen" method="post" id="kode-verif">
+      <label class="label-kode" for="kodeVerif">Kode</label>
+      <input type="text" class="input-kode" id="kodeVerif" name="kodeVerif" placeholder="" required>
+      <button type="submit" class="btn btn-primary btn-ghost btn-kode" id="absen-selesai">Check In</button>
+    </form>
   </div>
   <script src="./app.js"></script>
+  <script src="./hiding.js"></script>
 </body>
 </html>
 

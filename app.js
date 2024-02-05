@@ -59,28 +59,11 @@ app.post('/', (req, res, next) => {
   formData = req.body;
   const studentName = req.body.studentName;
   const kodeVerifGen = generatekodeVerif();
-  const verifikasikodepage = `
-    <form class="form-input-material" action="/sudahabsen" method="post" id="kodeVerif">
-      <label style="font-size: 50px;" class="label-kode" for="kodeVerif">KODE</label>
-      <input style="font-size: 50px; box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
-      0 1px 1px rgba(128, 128, 128, 0.155),
-      0 2.1px 2.1px rgba(128, 128, 128, 0.195),
-      0 4.4px 4.4px rgba(128, 128, 128, 0.241),
-      0 12px 12px rgba(128, 128, 128, 0.35);" type="text" class="input-kode" id="kodeVerif" name="kodeVerif" placeholder="" required>
-      <button style="font-size: 50px; box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
-      0 1px 1px rgba(128, 128, 128, 0.155),
-      0 2.1px 2.1px rgba(128, 128, 128, 0.195),
-      0 4.4px 4.4px rgba(128, 128, 128, 0.241),
-      0 12px 12px rgba(128, 128, 128, 0.35);" type="submit" class="btn btn-primary btn-ghost btn-kode" id="clearAbsen">Check In</button>
-    </form>
-  `;
   const qr_png = qr.image(kodeVerifGen, { type: 'png' });
   const qrPath = 'qr_codes/' + studentName + '.png';
   qr_png.pipe(fs.createWriteStream(qrPath));
   console.log(`${studentName} telah membuat QR Code`);
   console.log(kodeVerifGen);
-  res.sendFile(path.join(__dirname, 'public', 'style.css'));
-  res.send(verifikasikodepage);
   db.query('SELECT * FROM verifikasi WHERE nama_murid = ?', [formData.studentName], (err, rows) => {
     if (err) throw err;
 
