@@ -1,135 +1,69 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #eceffc;
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
 }
-
-.btn {
-  padding: 8px 20px;
-  border-radius: 0;
-  overflow: hidden;
-
-  &::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      var(--primary-color),
-      transparent
-    );
-    transform: translateX(-100%);
-    transition: 0.6s;
-  }
-
-  &:hover {
-    background: transparent;
-    box-shadow: 0 0 20px 10px hsla(204, 70%, 53%, 0.5);
-
-    &::before {
-      transform: translateX(100%);
-    }
-  }
-}
-
-.form-input-material {
-  --input-default-border-color: white;
-  --input-border-bottom-color: white;
-  
-  input {
-    color: rgb(244, 164, 96);
-  }
-}
-
-.rv_element {
-  display: none;
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  padding: 50px 40px;
-  color: white;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-  box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
-    0 1px 1px rgba(128, 128, 128, 0.155),
-    0 2.1px 2.1px rgba(128, 128, 128, 0.195),
-    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
-    0 12px 12px rgba(128, 128, 128, 0.35);
-
-  h1 {
-    margin: 0 0 10px 0;
-    border-bottom: 2px solid #f4a460; margin: 0 0 30px;
-  }
-
-  .form-input-material {
-    margin: 20px 0;
-  }
-
-  .btn {
-    width: 100%;
-    margin: 18px 0 9px 0;
-    position: relative;
-    left: 0px;
-    top: 35px;
-  }
-}
-
-.input-kode {
-  font-size: 20px;
+.form {
   position: relative;
-  left: 70px;
-  top: 15px;
-}
-
-.input-nama {
-  font-size: 20px;
-  position: relative;
-  left: 65px;
-}
-
-.select-kelas {
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
   text-align: center;
-  font-size: 20px;
-  position: relative;
-  left: 68px;
-  top: 33px;
-  width: 262px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
-.label-nama {
-  font-size: 25px;
-  position: relative;
-  bottom: 25px;
-  left: 130px;
-  margin: 0 0;
+.form select {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
-
-.label-kode {
-  font-size: 25px;
-  position: relative;
-  bottom: 10px;
-  left: 130px;
-  margin: 0 0;
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
 }
-
-.label-kelas {
-  font-size: 25px;
-  position: relative;
-  top: 10px;
-  left: 130px;
-  margin: 0 0;
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
 }
-
-.btn-nama {
-  position: relative;
-  left: 70px;
-  bottom: 2px;
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
 }

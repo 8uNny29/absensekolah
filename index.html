@@ -9,34 +9,37 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="login-form" id="nama-form">
-    <h1>ABSEN SMK BINA SISWA 2 CILILIN</h1>
-    <form class="form-input-material" method="post" id="nama-kelas">
-      <label class="label-nama" for="studentName">Nama</label>
-      <input type="text" class="input-nama" id="studentName" name="studentName" required>
-      <button type="submit" class="btn-nama" id="minta-qrcode">Minta QRCode</button>
-      <br>
-      <label class="label-kelas" for="pilihKelas">Kelas</label>
-      <select class="select-kelas" id="pilihKelas" name="pilihKelas" required>
-        <option class="opsikelas1" value="X_TKJ_1">X TKJ 1</option>
-        <option class="opsikelas2" value="X_TKJ_2">X TKJ 2</option>
-        <option class="opsikelas3" value="X_TKJ_3">X TKJ 3</option>
-        <option class="opsikelas4" value="X_TBSM">X TBSM</option>
-        <option class="opsikelas5" value="XI_TKJ_1">XI TKJ 1</option>
-        <option class="opsikelas6" value="XI_TKJ_2">XI TKJ 2</option>
-        <option class="opsikelas7" value="XI_TKJ_3">XI TKJ 3</option>
-        <option class="opsikelas8" value="XI_TBSM">XI TBSM</option>
-        <option class="opsikelas9" value="XII_TKJ_1">XII TKJ 1</option>
-        <option class="opsikelas10" value="XII_TKJ_2">XII TKJ 2</option>
-        <option class="opsikelas11" value="XII_TKJ_3">XII TKJ 3</option>
-        <option class="opsikelas12" value="XII_TBSM">XII TBSM</option>
-      </select>
-    </form>
-    <form style="display: none;" class="form-input-material" action="/sudahabsen" method="post" id="kode-verif">
-      <label class="label-kode" for="kodeVerif">Kode</label>
-      <input type="text" class="input-kode" id="kodeVerif" name="kodeVerif" placeholder="" required>
-      <button type="submit" class="btn btn-primary btn-ghost btn-kode" id="absen-selesai">Check In</button>
-    </form>
+  <div class="login-page" id="nama-form">
+    <div class="form">
+      <h1>ABSEN SMK BINA SISWA 2 CILILIN</h1>
+      <form class="login-form" method="post" id="nama-kelas">
+        <label for="studentName">Nama</label>
+        <input type="text" class="" id="studentName" name="studentName" required>
+        <br>
+        <label for="pilihKelas">Kelas</label><br>
+        <select id="pilihKelas" name="pilihKelas" required>
+          <option class="opsikelas1" value="X_TKJ_1">X TKJ 1</option>
+          <option class="opsikelas2" value="X_TKJ_2">X TKJ 2</option>
+          <option class="opsikelas3" value="X_TKJ_3">X TKJ 3</option>
+          <option class="opsikelas4" value="X_TBSM">X TBSM</option>
+          <option class="opsikelas5" value="XI_TKJ_1">XI TKJ 1</option>
+          <option class="opsikelas6" value="XI_TKJ_2">XI TKJ 2</option>
+          <option class="opsikelas7" value="XI_TKJ_3">XI TKJ 3</option>
+          <option class="opsikelas8" value="XI_TBSM">XI TBSM</option>
+          <option class="opsikelas9" value="XII_TKJ_1">XII TKJ 1</option>
+          <option class="opsikelas10" value="XII_TKJ_2">XII TKJ 2</option>
+          <option class="opsikelas11" value="XII_TKJ_3">XII TKJ 3</option>
+          <option class="opsikelas12" value="XII_TBSM">XII TBSM</option>
+        </select>
+        <br>
+        <button type="submit" class="" id="minta-qrcode">Minta QRCode</button>
+      </form>
+      <form style="display: none;" class="login-form" action="/sudahabsen" method="post" id="kode-verif">
+        <label for="kodeVerif">Kode</label>
+        <input type="text" id="kodeVerif" name="kodeVerif" placeholder="" required>
+        <button type="submit" id="absen-selesai">Check In</button>
+      </form>
+    </div>
   </div>
   <script src="./app.js"></script>
   <script src="./hiding.js"></script>
