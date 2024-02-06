@@ -105,9 +105,9 @@ app.post('/sudahabsen', (req, res, next) => {
       db.query(`INSERT INTO ${formData.pilihKelas} (nama_murid, kelas, tanggal_waktu) VALUES (?,?,?)` , [formData.studentName, formData.pilihKelas, timeANDtodayFormatted], (err, result) => {
         if (err) throw err;
       });
-      res.send(`Verifikasi ${formData.studentName} dari kelas ${formData.pilihKelas} berhasil pada tanggal : (${timeANDtodayFormatted}!`);
+      console.log(`Verifikasi (${formData.studentName}) dari kelas (${formData.pilihKelas}) berhasil pada tanggal : (${timeANDtodayFormatted})!`);
     } else {
-      res.send(`Verifikasi ${formData.studentName} dari kelas ${formData.pilihKelas} gagal pada tanggal : (${timeANDtodayFormatted}`);
+      console.log(`Verifikasi (${formData.studentName}) dari kelas (${formData.pilihKelas}) gagal pada tanggal : (${timeANDtodayFormatted})!`);
     }
   });
 });
