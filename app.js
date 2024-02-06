@@ -44,18 +44,19 @@ function generatekodeVerif() {
   return Math.floor(100000 + Math.random() * 900000);
 }
 
-const today = new Date();
-const dd = String(today.getDate()).padStart(2, '0');
-const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-const yyyy = today.getFullYear();
-const timeMinutes = String(today.getMinutes());
-const timeHours = String(today.getHours());
-const timeSeconds = String(today.getSeconds());
-
-const timeFormatted = timeHours + ':' + timeMinutes + ':' + timeSeconds;
-const todayFormatted = dd + '-' + mm + '-' + yyyy;
-
 app.post('/', (req, res, next) => {
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  const yyyy = today.getFullYear();
+  const timeMinutes = String(today.getMinutes());
+  const timeHours = String(today.getHours());
+  const timeSeconds = String(today.getSeconds());
+
+  const timeFormatted = timeHours + ':' + timeMinutes + ':' + timeSeconds;
+  const todayFormatted = dd + '-' + mm + '-' + yyyy;
+  const timeANDtodayFormatted = todayFormatted + ' / ' + timeFormatted;
+
   formData = req.body;
   const studentName = req.body.studentName;
   const kodeVerifGen = generatekodeVerif();
@@ -64,17 +65,17 @@ app.post('/', (req, res, next) => {
   qr_png.pipe(fs.createWriteStream(qrPath));
   console.log(`${studentName} telah membuat QR Code`);
   console.log(kodeVerifGen);
-  db.query('SELECT * FROM verifikasi WHERE nama_murid = ?', [formData.studentName], (err, rows) => {
+  db.query('SELECT * FROM data_verifikasi WHERE nama_murid = ?', [formData.studentName], (err, rows) => {
     if (err) throw err;
 
     if (rows.length === 0) {
-      db.query('INSERT INTO verifikasi (kode_verif, nama_murid, kelas, tanggal, waktu) VALUES (?,?,?,?,?)', [kodeVerifGen, formData.studentName, formData.pilihKelas, todayFormatted, timeFormatted], (err, result) => {
+      db.query('INSERT INTO data_verifikasi (kode_verif, nama_murid, kelas, tanggal_waktu) VALUES (?,?,?,?)', [kodeVerifGen, formData.studentName, formData.pilihKelas, timeANDtodayFormatted], (err, result) => {
         if (err) throw err;
         console.log(`kode (${kodeVerifGen}) dari ${formData.studentName} kelas (${formData.pilihKelas}) telah terkirim ke database`);
       });
     }
     else {
-      db.query('UPDATE verifikasi SET kode_verif = ?, tanggal = ?, waktu = ? WHERE nama_murid = ?', [kodeVerifGen, todayFormatted, timeFormatted, formData.studentName], (err, result) => {
+      db.query('UPDATE data_verifikasi SET kode_verif = ?, tanggal_waktu = ? WHERE nama_murid = ?', [kodeVerifGen, timeANDtodayFormatted, formData.studentName], (err, result) => {
         if (err) throw err;
         console.log(`kode dari ${formData.studentName} kelas (${formData.pilihKelas}) telah di perbaharui dengan (${kodeVerifGen})`);
       });
@@ -83,18 +84,30 @@ app.post('/', (req, res, next) => {
 });
 
 app.post('/sudahabsen', (req, res, next) => {
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  const yyyy = today.getFullYear();
+  const timeMinutes = String(today.getMinutes());
+  const timeHours = String(today.getHours());
+  const timeSeconds = String(today.getSeconds());
+
+  const timeFormatted = timeHours + ':' + timeMinutes + ':' + timeSeconds;
+  const todayFormatted = dd + '-' + mm + '-' + yyyy;
+  const timeANDtodayFormatted = todayFormatted + ' / ' + timeFormatted;
+
   const kodeVerif = req.body.kodeVerif;
 
-  db.query('SELECT * FROM verifikasi WHERE kode_verif = ?', [kodeVerif], (err, result) => {
+  db.query('SELECT * FROM data_verifikasi WHERE kode_verif = ?', [kodeVerif], (err, result) => {
     if (err) throw err;
 
     if (result.length > 0) {
-      db.query(`INSERT INTO ${formData.pilihKelas} (nama_murid, kelas, tanggal, waktu) VALUES (?,?,?,?)` , [formData.studentName, formData.pilihKelas, todayFormatted, timeFormatted], (err, result) => {
+      db.query(`INSERT INTO ${formData.pilihKelas} (nama_murid, kelas, tanggal_waktu) VALUES (?,?,?)` , [formData.studentName, formData.pilihKelas, timeANDtodayFormatted], (err, result) => {
         if (err) throw err;
       });
-      res.send(`Verifikasi ${formData.studentName} dari kelas ${formData.pilihKelas} berhasil pada tanggal : (${todayFormatted} / ${timeFormatted})!`);
+      res.send(`Verifikasi ${formData.studentName} dari kelas ${formData.pilihKelas} berhasil pada tanggal : (${timeANDtodayFormatted}!`);
     } else {
-      res.send(`Verifikasi ${formData.studentName} dari kelas ${formData.pilihKelas} gagal pada tanggal : (${todayFormatted} / ${timeFormatted}!`);
+      res.send(`Verifikasi ${formData.studentName} dari kelas ${formData.pilihKelas} gagal pada tanggal : (${timeANDtodayFormatted}`);
     }
   });
 });
