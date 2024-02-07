@@ -19,6 +19,7 @@ h1 {
   padding: 8% 0 0;
   margin: auto;
 }
+
 .form {
   position: relative;
   z-index: 1;
@@ -29,6 +30,7 @@ h1 {
   text-align: center;
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.24);
 }
+
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
@@ -52,6 +54,7 @@ h1 {
   box-sizing: border-box;
   font-size: 14px;
 }
+
 .form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -71,6 +74,7 @@ h1 {
     -1px 1px 0 #000,
      1px 1px 0 #000;
 }
+
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }
