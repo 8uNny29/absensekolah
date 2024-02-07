@@ -4,6 +4,16 @@ body {
   background-color: grey;
 }
 
+h1 {
+  color: burlywood;
+  font-family: "Roboto", sans-serif;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
 .login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -55,16 +65,23 @@ body {
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
-}
-.form .message a {
-  color: #4CAF50;
-  text-decoration: none;
+
+.berhasil-absen {
+  color: burlywood;
+  font-size: 25px;
+  font-family: "Roboto", sans-serif;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }

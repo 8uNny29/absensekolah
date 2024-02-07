@@ -4,9 +4,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ABSEN - SMK BINA SISWA 2 CILILIN</title>
-        <link rel="stylesheet" type="text/css" href="/sudahabsen/style-sudahabsen.css">
+        <link rel="stylesheet" type="text/css" href="/style.css">
     </head>
     <body>
-        <h1>GAGAL ABSEN MANG!!! ULANG LAGI</h1>
+        <div class="login-page" id="nama-form">
+            <div class="form">
+              <h1>ABSEN SMK BINA SISWA 2 CILILIN</h1>
+              <form class="login-form" action="/sudahabsen" method="post" id="kode-verif">
+                <label for="kodeVerif">Kode</label>
+                <input type="text" id="isi-kodeverif" name="kodeVerif" placeholder="KODE SALAH, MASUKKAN ULANG" required>
+                <button type="submit" id="absen-selesai">Check In</button>
+              </form>
+            </div>
+          </div>
     </body>
+    <script src="app.js"></script>
+    <script src="./script.js"></script>
 </html>

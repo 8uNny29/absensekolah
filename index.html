@@ -14,7 +14,7 @@
       <h1>ABSEN SMK BINA SISWA 2 CILILIN</h1>
       <form class="login-form" method="post" id="nama-kelas">
         <label for="studentName">Nama</label>
-        <input type="text" class="" id="studentName" name="studentName" required>
+        <input type="text" class="" id="studentName" name="studentName" placeholder="MASUKKAN NAMA LENGKAP ANDA!" required>
         <br>
         <label for="pilihKelas">Kelas</label><br>
         <select id="pilihKelas" name="pilihKelas" required>
@@ -34,14 +34,16 @@
         <br>
         <button type="submit" class="" id="minta-qrcode">Minta QRCode</button>
       </form>
+
       <form style="display: none;" class="login-form" action="/sudahabsen" method="post" id="kode-verif">
         <label for="kodeVerif">Kode</label>
-        <input type="text" id="isi-kodeverif" name="kodeVerif" placeholder="" required>
+        <input type="text" id="isi-kodeverif" name="kodeVerif" placeholder="MASUKKAN KODE DENGAN BENAR!" required>
         <button type="submit" id="absen-selesai">Check In</button>
+        <h1 style="display: none;" id="kode-salah">KODE SALAH!</h1>
       </form>
     </div>
   </div>
-  <script src="./app.js"></script>
+  <script src="app.js"></script>
   <script src="./script.js"></script>
 </body>
 </html>
