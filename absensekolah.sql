@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               10.4.32-MariaDB - mariadb.org binary distribution
+-- Server version:               10.4.28-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win64
 -- HeidiSQL Version:             12.6.0.6765
 -- --------------------------------------------------------
@@ -19,23 +19,12 @@
 CREATE DATABASE IF NOT EXISTS `absensekolah` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 USE `absensekolah`;
 
--- Dumping structure for table absensekolah.data
-CREATE TABLE IF NOT EXISTS `data` (
-  `nama_murid` char(50) DEFAULT NULL,
-  `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Data exporting was unselected.
-
--- Dumping structure for table absensekolah.verifikasi
-CREATE TABLE IF NOT EXISTS `verifikasi` (
+-- Dumping structure for table absensekolah.data_verifikasi
+CREATE TABLE IF NOT EXISTS `data_verifikasi` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
   `kode_verif` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Data exporting was unselected.
@@ -44,8 +33,7 @@ CREATE TABLE IF NOT EXISTS `verifikasi` (
 CREATE TABLE IF NOT EXISTS `xii_tbsm` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
@@ -54,8 +42,7 @@ CREATE TABLE IF NOT EXISTS `xii_tbsm` (
 CREATE TABLE IF NOT EXISTS `xii_tkj_1` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
@@ -64,8 +51,7 @@ CREATE TABLE IF NOT EXISTS `xii_tkj_1` (
 CREATE TABLE IF NOT EXISTS `xii_tkj_2` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
@@ -74,8 +60,7 @@ CREATE TABLE IF NOT EXISTS `xii_tkj_2` (
 CREATE TABLE IF NOT EXISTS `xii_tkj_3` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
@@ -84,8 +69,7 @@ CREATE TABLE IF NOT EXISTS `xii_tkj_3` (
 CREATE TABLE IF NOT EXISTS `xi_tbsm` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
@@ -94,8 +78,7 @@ CREATE TABLE IF NOT EXISTS `xi_tbsm` (
 CREATE TABLE IF NOT EXISTS `xi_tkj_1` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
@@ -104,8 +87,7 @@ CREATE TABLE IF NOT EXISTS `xi_tkj_1` (
 CREATE TABLE IF NOT EXISTS `xi_tkj_2` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
@@ -114,8 +96,7 @@ CREATE TABLE IF NOT EXISTS `xi_tkj_2` (
 CREATE TABLE IF NOT EXISTS `xi_tkj_3` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
@@ -124,8 +105,7 @@ CREATE TABLE IF NOT EXISTS `xi_tkj_3` (
 CREATE TABLE IF NOT EXISTS `x_tbsm` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
@@ -134,8 +114,7 @@ CREATE TABLE IF NOT EXISTS `x_tbsm` (
 CREATE TABLE IF NOT EXISTS `x_tkj_1` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
@@ -144,8 +123,7 @@ CREATE TABLE IF NOT EXISTS `x_tkj_1` (
 CREATE TABLE IF NOT EXISTS `x_tkj_2` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
@@ -154,8 +132,7 @@ CREATE TABLE IF NOT EXISTS `x_tkj_2` (
 CREATE TABLE IF NOT EXISTS `x_tkj_3` (
   `nama_murid` char(50) DEFAULT NULL,
   `kelas` char(50) DEFAULT NULL,
-  `tanggal` char(50) DEFAULT NULL,
-  `waktu` char(50) DEFAULT NULL
+  `tanggal_waktu` char(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=DYNAMIC;
 
 -- Data exporting was unselected.
